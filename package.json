@@ -1,0 +1,19 @@
+{
+  "name": "sky-scanner-testcafe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe chrome spec/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexmaddock/sky-scanner-testcafe.git"
+  },
+  "author": "alex maddock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexmaddock/sky-scanner-testcafe/issues"
+  },
+  "homepage": "https://github.com/alexmaddock/sky-scanner-testcafe#readme"
+}
