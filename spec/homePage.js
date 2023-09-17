@@ -5,8 +5,8 @@ fixture `Home Page`
 
 test('Search Return Flights [search.anonymous.user]', async() => {
 
-    await HomePage.selectDepartureCity('Sydney');
-    // await HomePage.selectArrivalCity('Beunos Aires')
+    await HomePage.selectDepartureCity('Brisbane');
+    await HomePage.selectArrivalCity('Beunos Aires')
     // await HomePage.selectDepartureDate();
     // await HomePage.selectReturnDate();
     // await HomePage.applyPassengar();

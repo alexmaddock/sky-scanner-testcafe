@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome spec/*.js"
+    "test": "testcafe chrome spec/*.js --live",
+    "repl": "node -i -e \"$(< ./repl.js)\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/alexmaddock/sky-scanner-testcafe/issues"
   },
-  "homepage": "https://github.com/alexmaddock/sky-scanner-testcafe#readme"
+  "homepage": "https://github.com/alexmaddock/sky-scanner-testcafe#readme",
+  "dependencies": {
+    "dayjs": "^1.11.9"
+  }
 }
