@@ -31,7 +31,7 @@ let currentDay = day;
 let fortnight = 14;
 let remainingDaysInMonth;
 
-const determineAppropriateMonth = () => {
+const determineAppropriateDate = () => {
 
     let appropriateMonthSelection;
 
@@ -55,5 +55,5 @@ const determineAppropriateMonth = () => {
 }
 
 
-export default determineAppropriateMonth;
+export default determineAppropriateDate;
 

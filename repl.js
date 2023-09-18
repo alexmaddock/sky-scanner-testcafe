@@ -1,46 +1,100 @@
 const dayjs = require('dayjs')
-dayjs().format();
+// dayjs().format();
 
-const dayPicker = () => {
+const timeStampObject = () => {
     var now = dayjs();
-    console.log(now)
     return now;
 };
 
-
-const { $y, $M, $D, $d } = dayPicker()   
+const { $y, $M, $D, $d } = timeStampObject()   
 
 const [ year, month, day, timeStamp ] = [$y, $M, $D, $d];
-// const year = $Y;
-// const month = $M;
-// const day = $D;
 
 const monthMappings = [
-    // Leap year not in this
-    { name: "January", month: 1, days: 31 },
-    { name: "February", month: 2, days: 28 },
-    { name: "March", month: 3, days: 31 },
-    { name:"April",  month: 4, days: 30 },
-    { name: "May", month: 5, days: 31 },
-    { name: "June", month: 6, days: 30 },
-    { name: "July", month: 7, days: 31 },
-    { name: "August", month: 8, days: 31 },
-    { name: "Septempber", month: 9, days: 30 },
-    { name: "October", month: 10, days: 31 },
-    { name: "November", month: 11, days: 30 },
-    { name: "December", month: 12, days: 31 }
+    // Leap year not included
+    [{ collections: {monthName: "January", monthNum: 1, totalDays: 31 }}], // need to add current day to this I think for later use
+    [{ collections: {monthName: "February", monthNum: 2, totalDays: 28 }}],
+    [{ collections: {monthName: "March", monthNum: 3, totalDays: 31 }}],
+    [{ collections: {monthName:"April",  monthNum: 4, totalDays: 30 }}],
+    [{ collections: {monthName: "May", monthNum: 5, totalDays: 31 }}],
+    [{ collections: {monthName: "June", monthNum: 6, totalDays: 30 }}],
+    [{ collections: {monthName: "July", monthNum: 7, totalDays: 31 }}],
+    [{ collections: {monthName: "August", monthNum: 8, totalDays: 31 }}],
+    [{ collections: {monthName: "September", monthNum: 9, totalDays: 30 }}],
+    [{ collections: {monthName: "October", monthNum: 10, totalDays: 31 }}],
+    [{ collections: {monthName: "November", monthNum: 11, totalDays: 30 }}],
+    [{ collections: {monthName: "December", monthNum: 12, totalDays: 31 }}]
 ]
 
-determineAutomaticSelectionDate = (date = timeStamp) => {
-    const determineDaysByMonth = monthMappings.find(({name, month, days}) => {
-         //     return something === days.js().month() ? 
-    //     month[0].day :
-    //     28 - 
-    // })
-    // date <= monthMappings
-        console.log(name, month, days)
-    })
-    return determineDaysByMonth; 
+let currentMonth = month;
+let currentDay = day;
+let fortnight = 14;
+let remainingDaysInMonth;
+
+const determineAppropriateMonth = () => {
+
+    let appropriateMonthSelection;
+
+    monthMappings.forEach((/*: {month, monthNum, totalDays}*/ [monthList], i) => {
+        const { collections, collections: { monthName, monthNum, totalDays } } = monthList;
+        let index = i + 1; // bring index out of 0 bounds starting position
+        index++ // for next month iteration selection
+        remainingDaysInMonth = totalDays - currentDay;
+    
+        if(monthNum == currentMonth) {
+            console.log(`Computed month matches collection at month name: ${monthName}, and month number: ${monthNum}`);
+            console.log(`NUBMER of days left for month is ${remainingDaysInMonth}`);
+            return remainingDaysInMonth < fortnight ?
+            appropriateMonthSelection = monthMappings[i+1]
+            : appropriateMonthSelection = monthMappings[index]
+        }
+
+    });
+
+    // Need to take this out of an array like structure
+    return appropriateMonthSelection[0];
 }
 
-determineAutomaticSelectionDate();
+determineAppropriateMonth();
+
+module.exports = {
+    determineAppropriateMonth
+}
+
+/** ------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+
+
+
+// let c = (x)=> x*x;
+
+// let a = () => {
+//     return b = (input) => {return input};
+// }
+
+
+// const selectDate = (isDateSuitable) => (date) => {
+
+    
+
+//     computedDate().toString()
+    
+//     return newlyCraftedDate => {
+//         return determineAppropriateMonth()
+//     }
+
+// }
+
+// const lookUpCurrentMonth () => {
+
+// }
+
+
+// const isDayOfMonthIdeal = () => {
+//     let currentMonth = month;
+//     let currentDay = day;
+//     let fortnight = 14;
+//     let remainingDaysInMonth;
+
+
+// } 
