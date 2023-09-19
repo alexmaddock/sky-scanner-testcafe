@@ -12,23 +12,23 @@ const [ year, month, day, timeStamp ] = [$y, $M, $D, $d];
 
 const monthMappings = [
     // Leap year not included
-    [{ collections: {month: "January", monthNum: 1, totalDays: 31 }}],
-    [{ collections: {month: "February", monthNum: 2, totalDays: 28 }}],
-    [{ collections: {month: "March", monthNum: 3, totalDays: 31 }}],
-    [{ collections: {month:"April",  monthNum: 4, totalDays: 30 }}],
-    [{ collections: {month: "May", monthNum: 5, totalDays: 31 }}],
-    [{ collections: {month: "June", monthNum: 6, totalDays: 30 }}],
-    [{ collections: {month: "July", monthNum: 7, totalDays: 31 }}],
-    [{ collections: {month: "August", monthNum: 8, totalDays: 31 }}],
-    [{ collections: {month: "September", monthNum: 9, totalDays: 30 }}],
-    [{ collections: {month: "October", monthNum: 10, totalDays: 31 }}],
-    [{ collections: {month: "November", monthNum: 11, totalDays: 30 }}],
-    [{ collections: {month: "December", monthNum: 12, totalDays: 31 }}]
+    [{ collections: {monthName: "January", monthNum: 1, totalDays: 31 }}],
+    [{ collections: {monthName: "February", monthNum: 2, totalDays: 28 }}],
+    [{ collections: {monthName: "March", monthNum: 3, totalDays: 31 }}],
+    [{ collections: {monthName:"April",  monthNum: 4, totalDays: 30 }}],
+    [{ collections: {monthName: "May", monthNum: 5, totalDays: 31 }}],
+    [{ collections: {monthName: "June", monthNum: 6, totalDays: 30 }}],
+    [{ collections: {monthName: "July", monthNum: 7, totalDays: 31 }}],
+    [{ collections: {monthName: "August", monthNum: 8, totalDays: 31 }}],
+    [{ collections: {monthName: "September", monthNum: 9, totalDays: 30 }}],
+    [{ collections: {monthName: "October", monthNum: 10, totalDays: 31 }}],
+    [{ collections: {monthName: "November", monthNum: 11, totalDays: 30 }}],
+    [{ collections: {monthName: "December", monthNum: 12, totalDays: 31 }}]
 ]
 
 let currentMonth = month;
 let currentDay = day;
-let fortnight = 14;
+let fortnight = 14; // maybe push this to 21 days
 let remainingDaysInMonth;
 
 const determineAppropriateDate = () => {
@@ -43,7 +43,7 @@ const determineAppropriateDate = () => {
     
         if(monthNum == currentMonth) {
             console.log(`Computed month matches collection at month name: ${month}, and month number: ${monthNum}`);
-            console.log(`NUBMER of days left for month is ${remainingDaysInMonth}`);
+            console.log(`Number of days left for month is ${remainingDaysInMonth}`);
             return remainingDaysInMonth < fortnight ?
             appropriateMonthSelection = monthMappings[i+1]
             : appropriateMonthSelection = monthMappings[index]
@@ -51,9 +51,23 @@ const determineAppropriateDate = () => {
 
     });
 
-    return appropriateMonthSelection;
+    return appropriateMonthSelection[0];
 }
 
 
 export default determineAppropriateDate;
 
+/**
+ * This function needs work. If you book ahead with last months date it may fail due
+ * to date offsetting. Need to calculate for month end differences
+ * 
+ * Consider inversing ternary logic opertor to be greater than and swapping the consequent
+ * and alternative expressions to return a safe date range when needing to book return date
+ * after departure date.
+ * 
+ * Consider pushing fortnight to 3 week range for greater safeguard
+ * 
+ * Skyscanner has other issues to resolve. Some dates on the front end cannot be selected
+ * and calendar cannot be scrolled to future months with ">" icon. Further logic to try overcome
+ * 
+ */

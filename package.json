@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome spec/*.js --live",
+    "test": "testcafe 'chrome --start-fullscreen' spec/*.js --live",
     "repl": "node -i -e \"$(< ./repl.js)\""
   },
   "repository": {
