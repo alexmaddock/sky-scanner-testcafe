@@ -18,6 +18,6 @@ jobs:
       - store_test_results:
           path: /tmp/test-results
 workflows:
-  e2e-test:
+  test:
     jobs:
       - test
