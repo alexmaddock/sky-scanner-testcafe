@@ -4,6 +4,11 @@ This repo is designed as a sample to demo test code and logic against the Skysca
 
 It is not an exhaustive test suite, rather it is in place to demo certain key concepts like the abstraction methods, for say, Page Object Model.
 
+## Test Locations
+
+Tests are found in [spec dir](https://github.com/alexmaddock/sky-scanner-testcafe/blob/main/spec/homePage.js). These inherit from [pageObjects dir](https://github.com/alexmaddock/sky-scanner-testcafe/blob/main/pageObjects/HomePage.js), which uses date picker logic developed in the [helpers dir](https://github.com/alexmaddock/sky-scanner-testcafe/blob/main/helpers/datePicker.js).
+
+The tests have been purposely built to avoid variable assignment and return statements. They use a pure POM design, at the cleanest most readable level possible.
 
 ## System Requirements
 Latest LTS version of node. Comes with npm from site install.
